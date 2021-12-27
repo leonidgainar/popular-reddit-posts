@@ -10,26 +10,25 @@
       <font-awesome-icon class="ml-2" icon="sync" />
     </button>
   </div>
-  <div v-if="isLoading" class="flex items-center justify-center">
-    <div
-      style="border-top-color: transparent"
-      class="w-8 h-8 border-4 border-blue-500 border-dashed rounded-full animate-spin"
-    ></div>
-    <div class="ml-2">Fetching posts from Reddit API, please wait...</div>
-  </div>
-  <PostCardList v-else :posts="posts" />
+  <BaseLoadingSpinner
+    :isLoading="isLoading"
+    message="Fetching posts from Reddit API, please wait..."
+  />
+  <PostCardList :posts="posts" />
 </template>
 
 <script>
 import { createNamespacedHelpers } from "vuex";
 const { mapGetters, mapActions } = createNamespacedHelpers("posts");
-import PostCardList from "../components/PostCardList.vue";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import PostCardList from "../components/PostCardList.vue";
+import BaseLoadingSpinner from "../components/BaseLoadingSpinner.vue";
 
 export default {
   components: {
     PostCardList,
-    FontAwesomeIcon
+    FontAwesomeIcon,
+    BaseLoadingSpinner
   },
 
   created() {
