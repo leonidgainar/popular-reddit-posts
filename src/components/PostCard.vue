@@ -5,14 +5,24 @@
     <div class="w-full py-4 px-6 text-gray-800 flex flex-col justify-between">
       <h3 class="font-semibold text-lg">{{ title }}</h3>
       <div>
-        <font-awesome-icon class="mx-2" icon="thumbs-up" /> {{ upvotes }}
-        <font-awesome-icon class="mx-2" icon="smile" />{{
-          upvoteRatioPercentage
-        }}
-        <font-awesome-icon class="mx-2" icon="comments" />{{ comments }}
         <p class="text-sm text-gray-700 uppercase font-semibold mt-2">
-          {{ author }} &bull; {{ created }}
+          <span class="cursor-default" title="Author">{{ author }}</span> &bull;
+          <span class="cursor-default" title="Created date">
+            {{ created }}
+          </span>
         </p>
+        <div class="mt-2">
+          <font-awesome-icon class="mx-2" icon="thumbs-up" />
+          <span class="cursor-default" title="Up votes">{{ upvotes }}</span>
+          <font-awesome-icon class="mx-2" icon="percentage" />
+          <span class="cursor-default" title="Percentage of up votes">
+            {{ upvoteRatioPercentage }}
+          </span>
+          <font-awesome-icon class="mx-2" icon="comments" />
+          <span class="cursor-default" title="Number of comments">
+            {{ comments }}
+          </span>
+        </div>
         <a
           type="button"
           class="bg-blue-500 hover:bg-blue-700 text-white font-bold rounded py-2 px-4 mt-4"
@@ -63,7 +73,7 @@ export default {
 
   computed: {
     upvoteRatioPercentage() {
-      return `${this.upvoteRatio * 100} %`;
+      return this.upvoteRatio * 100;
     }
   }
 };

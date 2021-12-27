@@ -9,11 +9,11 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faSync,
   faThumbsUp,
-  faSmile,
+  faPercentage,
   faComments
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faSync, faThumbsUp, faSmile, faComments);
+library.add(faSync, faThumbsUp, faPercentage, faComments);
 
 const app = createApp(App);
 

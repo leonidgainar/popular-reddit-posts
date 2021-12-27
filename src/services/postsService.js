@@ -12,7 +12,10 @@ export default {
           upvoteRatio: data.upvote_ratio,
           comments: data.num_comments,
           url: `https://www.reddit.com${data.permalink}`,
-          created: new Date(data.created * 1000).toLocaleString("en-US")
+          created: new Intl.DateTimeFormat("en-US", {
+            dateStyle: "short",
+            timeStyle: "short"
+          }).format(data.created * 1000)
         };
       });
       return posts;
