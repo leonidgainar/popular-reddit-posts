@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex flex-col md:flex-row overflow-hidden bg-white rounded-md shadow-md mt-4 mx-4 w-full h-full"
+    class="flex flex-col md:flex-row overflow-hidden bg-white rounded-md shadow-md w-full h-full"
   >
     <div class="w-full py-4 px-6 text-gray-800 flex flex-col justify-between">
       <h3 class="font-semibold text-lg">{{ title }}</h3>
