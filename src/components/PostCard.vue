@@ -8,7 +8,7 @@
         <p class="text-sm text-gray-700 uppercase font-semibold mt-2">
           <span class="cursor-default" title="Author">{{ author }}</span> &bull;
           <span class="cursor-default" title="Created date">
-            {{ created }}
+            {{ formattedCreatedDate }}
           </span>
         </p>
         <div class="mt-2">
@@ -26,7 +26,7 @@
         <a
           type="button"
           class="bg-blue-500 hover:bg-blue-700 text-white font-bold rounded py-2 px-4 mt-4"
-          :href="url"
+          :href="fullPostUrl"
           target="_blank"
         >
           View post
@@ -54,7 +54,7 @@ export default {
       required: true
     },
     created: {
-      type: String,
+      type: Number,
       required: true
     },
     upvotes: {
@@ -74,6 +74,17 @@ export default {
   computed: {
     upvoteRatioPercentage() {
       return this.upvoteRatio * 100;
+    },
+
+    fullPostUrl() {
+      return `https://www.reddit.com${this.url}`;
+    },
+
+    formattedCreatedDate() {
+      return new Intl.DateTimeFormat("en-US", {
+        dateStyle: "short",
+        timeStyle: "short"
+      }).format(this.created * 1000);
     }
   }
 };

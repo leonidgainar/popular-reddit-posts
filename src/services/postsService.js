@@ -11,11 +11,8 @@ export default {
           upvotes: data.ups,
           upvoteRatio: data.upvote_ratio,
           comments: data.num_comments,
-          url: `https://www.reddit.com${data.permalink}`,
-          created: new Intl.DateTimeFormat("en-US", {
-            dateStyle: "short",
-            timeStyle: "short"
-          }).format(data.created * 1000)
+          url: data.permalink,
+          created: data.created
         };
       });
       return posts;
