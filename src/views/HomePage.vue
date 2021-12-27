@@ -10,7 +10,14 @@
       <font-awesome-icon class="ml-2" icon="sync" />
     </button>
   </div>
-  <PostCardList :posts="posts" />
+  <div v-if="isLoading" class="flex items-center justify-center">
+    <div
+      style="border-top-color: transparent"
+      class="w-8 h-8 border-4 border-blue-500 border-dashed rounded-full animate-spin"
+    ></div>
+    <div class="ml-2">Fetching posts from Reddit API, please wait...</div>
+  </div>
+  <PostCardList v-else :posts="posts" />
 </template>
 
 <script>
@@ -24,14 +31,21 @@ export default {
     PostCardList,
     FontAwesomeIcon
   },
+
   created() {
     if (!this.posts.length) {
       this.getPosts();
     }
   },
+
   computed: {
-    ...mapGetters(["posts", "fetchDate"])
+    ...mapGetters(["posts", "fetchDate"]),
+
+    isLoading() {
+      return !this.posts.length;
+    }
   },
+
   methods: {
     ...mapActions(["getPosts"])
   }

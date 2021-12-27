@@ -40,6 +40,10 @@
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 export default {
+  components: {
+    FontAwesomeIcon
+  },
+
   props: {
     title: {
       type: String,
@@ -65,10 +69,6 @@ export default {
     url: {
       type: String
     }
-  },
-
-  components: {
-    FontAwesomeIcon
   },
 
   computed: {

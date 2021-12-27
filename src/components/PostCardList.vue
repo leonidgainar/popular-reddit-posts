@@ -23,6 +23,7 @@ export default {
   components: {
     PostCard
   },
+
   props: {
     posts: {
       type: Array,
