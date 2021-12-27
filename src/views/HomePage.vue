@@ -20,14 +20,13 @@
 <script>
 import { createNamespacedHelpers } from "vuex";
 const { mapGetters, mapActions } = createNamespacedHelpers("posts");
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+
 import PostCardList from "../components/PostCardList.vue";
 import BaseLoadingSpinner from "../components/BaseLoadingSpinner.vue";
 
 export default {
   components: {
     PostCardList,
-    FontAwesomeIcon,
     BaseLoadingSpinner
   },
 
