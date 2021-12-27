@@ -17,8 +17,10 @@ const getters = {
 const actions = {
   getPosts({ commit }) {
     postsService.fetchRedditPosts().then((posts) => {
-      commit("setPosts", posts);
-      commit("setFetchDate");
+      if (posts) {
+        commit("setPosts", posts);
+        commit("setFetchDate");
+      }
     });
   }
 };

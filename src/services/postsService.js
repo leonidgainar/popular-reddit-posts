@@ -1,7 +1,7 @@
 import api from "../services/api";
 
 export default {
-  async fetchRedditPosts() {
+  fetchRedditPosts() {
     return api.get("https://www.reddit.com/r/popular.json").then((response) => {
       const { children } = response.data.data;
       const posts = children.map(({ data }) => {
