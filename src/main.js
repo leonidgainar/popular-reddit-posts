@@ -14,12 +14,21 @@ import {
   faComments
 } from "@fortawesome/free-solid-svg-icons";
 
+import Toast, { POSITION } from "vue-toastification";
+import "vue-toastification/dist/index.css";
+
 library.add(faSync, faThumbsUp, faPercentage, faComments);
+
+const options = {
+  position: POSITION.TOP_RIGHT,
+  timeout: 3000
+};
 
 const app = createApp(App);
 
 app.use(router);
 app.use(store);
+app.use(Toast, options);
 
 app.component("font-awesome-icon", FontAwesomeIcon);
 app.mount("#app");

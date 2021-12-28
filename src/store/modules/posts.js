@@ -1,4 +1,7 @@
 import postsService from "../../services/postsService";
+import { useToast } from "vue-toastification";
+
+const toast = useToast();
 
 const state = () => ({
   posts: [],
@@ -16,12 +19,17 @@ const getters = {
 
 const actions = {
   getPosts({ commit }) {
-    postsService.fetchRedditPosts().then((posts) => {
-      if (posts) {
-        commit("setPosts", posts);
-        commit("setFetchDate");
-      }
-    });
+    postsService
+      .fetchRedditPosts()
+      .then((posts) => {
+        if (posts) {
+          commit("setPosts", posts);
+          commit("setFetchDate");
+        }
+      })
+      .catch((error) => {
+        toast.error(`Error on fetching API: ${error.message}`);
+      });
   }
 };
 
