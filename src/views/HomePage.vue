@@ -1,7 +1,7 @@
 <template>
   <h1 class="text-3xl font-bold py-4">Popular Reddit Posts</h1>
   <div class="flex justify-between mx-4 py-4">
-    <h3 class="font-semibold text-lg">Posts fetched on: {{ fetchDate }}</h3>
+    <h2 class="font-semibold text-lg">Posts fetched on: {{ fetchDate }}</h2>
     <button
       class="bg-blue-500 hover:bg-blue-700 text-white font-bold rounded py-2 px-4"
       @click="getPosts"
